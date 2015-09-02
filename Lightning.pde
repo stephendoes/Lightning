@@ -1,40 +1,60 @@
+
+int startX = 0;
+int startY = 150;
+int endX = 0;
+int endY = 150;
+int rando = (int)(Math.random()*255);
+int rMove = (int)(Math.random()*9);
+int yMove = (int)(Math.random()*18)-9;
+int vibrate = 0;
+
 void setup()
 {
-  size(400,400);
-  ray = new Lightning(0,150);
+  size(300,300);
+  background(0);
+  strokeWeight(2);
+  
 }
+
 void draw()
-{
-	background(0);
-	ray.show();
 
-}
-class Lightning 
 {
-	int startX,startY,endX,endY,colorR,colorG,colorB,xMove, yMove,strokeSize;
-	Lightning(int x,int y)
-	{	strokeSize = strokeS;
-		colorR = (int)(Math.random()*255);
-		colorG = (int)(Math.random()*255);
-		colorB = (int)(Math.random()*255);
-		xMove = (int)(Math.random()*10)+10;
-		yMove = (int)(Math.random()*30)-15;
-		startX = x;
-		startY = y;
-		endX = startX + rMove;	
-		endY = startY + yMove;
-		
-	void show()
+
+stroke((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+
+while (endX < 400)
+{
+	vibrate++;
+	if (vibrate>2)
 	{
-		//void mousePressed()
-		//{
-		while (x < 400)
-			{
-		strokeWeight(strokeSize);
-		stroke(coloR,colorG,colorB);
-		line(startX,startY,endX,endY);
+		vibrate-=2;
+	}
+	startY+=vibrate;
+	
 
-			//}
+	endX = startX + (int)(Math.random()*9)+5;
+	endY = startY + (int)(Math.random()*18)-9;	
+	line(startX,startY,endX,endY);
+	startX = endX;
+	startY = endY;	
+
+		if (endX > 400)
+			{
+				startX = 0;
+				startY = 150;
+				endX = 0;
+				endY = 150;
+				
+			}
+				
 		}
-	}	
 }
+
+void mousePressed()
+{
+startX = 0;
+startY = 150;
+endX = 0;
+endY = 150;
+}
+
