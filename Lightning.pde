@@ -7,11 +7,16 @@ int rando = (int)(Math.random()*255);
 int rMove = (int)(Math.random()*9);
 int yMove = (int)(Math.random()*18)-9;
 int vibrate = 0;
+int bc = 1;
+int q = 0; 
+
+
 
 void setup()
 {
+
   size(300,300);
-  background(0);
+
   strokeWeight(2);
   
 }
@@ -20,6 +25,15 @@ void draw()
 
 {
 
+q+=10;
+if (q>255)
+{
+	q = 0;
+}
+  	
+  
+
+ background(bc);
 stroke((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
 
 while (endX < 400)
