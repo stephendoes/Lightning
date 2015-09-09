@@ -3,9 +3,9 @@ int startX = 0;
 int startY = 150;
 int endX = 0;
 int endY = 150;
-int rando1 = (int)(Math.random()*200)+100;
-int rando2 = (int)(Math.random()*100)+100;
-int rando3 =  (int)(Math.random()*100);
+int r1= 1;
+int r2 = 1;
+int r3 = 1;
 int rMove = (int)(Math.random()*9);
 int yMove = (int)(Math.random()*18)-9;
 int vibrate = 0;
@@ -42,7 +42,7 @@ if (q>260)
 background(bc);
 
 sw++;
-if (sw>5)
+if (sw>3)
 {
 	sw--;
 }
@@ -55,19 +55,33 @@ if  (sw < 1)
 strokeWeight(sw);
 
 
-rando ++;
-stroke(rando1,rando2,rando3);
+r1 = (int)(Math.random()*255);
+r2= (int)(Math.random()*255);
+r3=(int)(Math.random()*255);
+stroke(r1,r2,r3);
 
 while (endX < 400)
 {
-	vibrate++;
-	if (vibrate>2)
-	{
-		vibrate-=2;
-	}
-	startY+=vibrate;
+	startX++;
 	
-
+	endX++;
+	
+	if (startX>5)
+	{
+		startX--;
+	}
+	if (startX<1)
+	{
+		startX++;
+	}
+	if (endX>5)
+	{
+		endX--;
+	}
+	if (endX<1)
+	{
+		endX++;
+	}
 	endX = startX + (int)(Math.random()*9)+5;
 	endY = startY + (int)(Math.random()*18)-9;	
 	line(startX,startY,endX,endY);
@@ -80,7 +94,6 @@ while (endX < 400)
 				startY = 150;
 				endX = 0;
 				endY = 150;
-				
 			}
 				
 		}
